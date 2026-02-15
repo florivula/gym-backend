@@ -19,11 +19,15 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
+# Install Prisma CLI (needed for generate and migrate)
+RUN npm install prisma --save-dev
+
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
-COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
 COPY prisma.config.ts ./
 COPY prisma ./prisma
+
+# Generate Prisma client in production
+RUN npx prisma generate
 
 EXPOSE 3001
 
