@@ -22,5 +22,13 @@ services:
     depends_on:
       - db
 
+  frontend:
+    image: gym-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+
 volumes:
   pgdata:
