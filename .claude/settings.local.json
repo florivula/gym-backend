@@ -11,7 +11,9 @@
       "Bash(npm run build:*)",
       "Bash(docker compose build:*)",
       "mcp__ide__getDiagnostics",
-      "Bash(npx prisma migrate dev:*)"
+      "Bash(npx prisma migrate dev:*)",
+      "Bash(git -C /home/florivula/Gym/gym-backend status)",
+      "Bash(git -C /home/florivula/Gym/gym-backend diff)"
     ]
   }
 }
