@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm init -y)",
+      "Bash(npm install:*)",
+      "Bash(npx prisma init)",
+      "Bash(npx prisma generate:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx tsx --eval \"import ''../src/generated/prisma''\")",
+      "Bash(npx tsx:*)",
+      "Bash(npm run build:*)",
+      "Bash(docker compose build:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(npx prisma migrate dev:*)"
+    ]
+  }
+}

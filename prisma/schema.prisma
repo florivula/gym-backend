@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Weight {
+  id        Int      @id @default(autoincrement())
+  weight    Decimal  @db.Decimal(5, 2)
+  date      DateTime @db.Date
+  createdAt DateTime @default(now())
+
+  @@map("weights")
+}
+
+model FoodEntry {
+  id        Int      @id @default(autoincrement())
+  name      String
+  calories  Int
+  protein   Decimal  @db.Decimal(5, 1)
+  date      DateTime @db.Date
+  time      String   // HH:MM format
+  createdAt DateTime @default(now())
+
+  @@map("food_entries")
+}
+
+model GymSession {
+  id          Int        @id @default(autoincrement())
+  plan        String     // e.g., "PPL", "ULPPL", "FBEOD"
+  dayType     String     // e.g., "Push", "Pull", "Legs"
+  startedAt   DateTime   @default(now())
+  completedAt DateTime?
+  isActive    Boolean    @default(true)
+  exercises   Exercise[]
+
+  @@map("gym_sessions")
+}
+
+model Exercise {
+  id        Int           @id @default(autoincrement())
+  sessionId Int
+  name      String
+  createdAt DateTime      @default(now())
+  session   GymSession    @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  sets      ExerciseSet[]
+
+  @@map("exercises")
+}
+
+model ExerciseSet {
+  id         Int      @id @default(autoincrement())
+  exerciseId Int
+  weight     Decimal  @db.Decimal(5, 1) // in kg
+  reps       Int
+  setNumber  Int
+  exercise   Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+
+  @@map("exercise_sets")
+}
