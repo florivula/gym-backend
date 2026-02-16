@@ -6,6 +6,17 @@ datasource db {
   provider = "postgresql"
 }
 
+model User {
+  id           Int      @id @default(autoincrement())
+  username     String   @unique
+  email        String   @unique
+  passwordHash String
+  role         String   @default("user")
+  createdAt    DateTime @default(now())
+
+  @@map("users")
+}
+
 model Weight {
   id        Int      @id @default(autoincrement())
   weight    Decimal  @db.Decimal(5, 2)
