@@ -19,6 +19,7 @@ services:
     environment:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/gym?schema=public
       PORT: "3001"
+      JWT_SECRET: "${JWT_SECRET:-super-secret-change-me-in-production}"
     depends_on:
       - db
 
