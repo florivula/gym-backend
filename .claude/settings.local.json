@@ -24,7 +24,9 @@
       "Bash(podman rm:*)",
       "Bash(npx prisma db seed:*)",
       "Bash(curl:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(PGPASSWORD=postgres psql:*)",
+      "Bash(python3:*)"
     ]
   }
 }
