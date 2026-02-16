@@ -14,7 +14,17 @@
       "Bash(npx prisma migrate dev:*)",
       "Bash(git -C /home/florivula/Gym/gym-backend status)",
       "Bash(git -C /home/florivula/Gym/gym-backend diff)",
-      "Bash(npx prisma migrate diff:*)"
+      "Bash(npx prisma migrate diff:*)",
+      "Bash(docker run:*)",
+      "Bash(command -v:*)",
+      "Bash(podman run:*)",
+      "Bash(pg_isready:*)",
+      "Bash(psql:*)",
+      "Bash(sudo -u postgres psql:*)",
+      "Bash(podman rm:*)",
+      "Bash(npx prisma db seed:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)"
     ]
   }
 }
