@@ -11,8 +11,10 @@ model User {
   username     String   @unique
   email        String   @unique
   passwordHash String
-  role         String   @default("user")
-  createdAt    DateTime @default(now())
+  role             String   @default("user")
+  dailyCalorieGoal Int?
+  dailyProteinGoal Int?
+  createdAt        DateTime @default(now())
 
   @@map("users")
 }
