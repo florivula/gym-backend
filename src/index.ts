@@ -6,6 +6,7 @@ import weightRouter from "./routes/weight";
 import foodRouter from "./routes/food";
 import sessionsRouter from "./routes/sessions";
 import dashboardRouter from "./routes/dashboard";
+import publicRouter from "./routes/public";
 import { authenticate } from "./middleware/auth";
 import { errorHandler } from "./middleware/errorHandler";
 
@@ -21,6 +22,7 @@ app.get("/health", (_req, res) => {
 
 // Public routes
 app.use("/auth", authRouter);
+app.use("/public", publicRouter);
 
 // Protected routes
 app.use(authenticate);
