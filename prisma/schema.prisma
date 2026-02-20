@@ -73,3 +73,13 @@ model ExerciseSet {
 
   @@map("exercise_sets")
 }
+
+model SavedFood {
+  id        Int      @id @default(autoincrement())
+  name      String
+  calories  Int
+  protein   Decimal  @db.Decimal(5, 1)
+  createdAt DateTime @default(now())
+
+  @@map("saved_foods")
+}

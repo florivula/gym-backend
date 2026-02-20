@@ -6,6 +6,7 @@ import weightRouter from "./routes/weight";
 import foodRouter from "./routes/food";
 import sessionsRouter from "./routes/sessions";
 import dashboardRouter from "./routes/dashboard";
+import savedFoodsRouter from "./routes/savedFoods";
 import publicRouter from "./routes/public";
 import { authenticate } from "./middleware/auth";
 import { errorHandler } from "./middleware/errorHandler";
@@ -30,6 +31,7 @@ app.use("/weight", weightRouter);
 app.use("/food", foodRouter);
 app.use("/sessions", sessionsRouter);
 app.use("/dashboard", dashboardRouter);
+app.use("/saved-foods", savedFoodsRouter);
 
 app.use(errorHandler);
 
